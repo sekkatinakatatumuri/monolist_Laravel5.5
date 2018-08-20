@@ -13,7 +13,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $count_want = $user->want_items()->count();
-        $count_have = "";
+        $count_have = $user->have_items()->count();
         
         $items = \DB::table('items')
             ->join('item_user', 'items.id', '=', 'item_user.item_id')
